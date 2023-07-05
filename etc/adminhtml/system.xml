@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="pronko_adwords_remarketing" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>pronko</tab>
+            <label>Google Dynamic Remarketing</label>
+            <resource>Pronko_GoogleAdWords::config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="active" translate="label comment" type="select" showInDefault="10" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>pronko/dynamic_remarketing/active</config_path>
+                    <comment>Enable Google AdWords prior to using Dynamic Remarketing</comment>
+                </field>
+                <field id="tag" translate="label" type="select" showInDefault="20" showInWebsite="1" showInStore="1">
+                    <label>Remarketing Type</label>
+                    <source_model>Pronko\GoogleAdWords\Source\Tag</source_model>
+                    <config_path>pronko/dynamic_remarketing/tag</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="conversion_id" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Conversion ID</label>
+                    <backend_model>Magento\GoogleAdwords\Model\Config\Backend\ConversionId</backend_model>
+                    <validate>required-entry validate-number</validate>
+                    <config_path>pronko/dynamic_remarketing/conversion_id</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="conversion_language" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Conversion Language</label>
+                    <source_model>Magento\GoogleAdwords\Model\Config\Source\Language</source_model>
+                    <config_path>pronko/dynamic_remarketing/conversion_language</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="conversion_format" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Conversion Format</label>
+                    <config_path>pronko/dynamic_remarketing/conversion_format</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="conversion_color" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Conversion Color</label>
+                    <backend_model>Magento\GoogleAdwords\Model\Config\Backend\Color</backend_model>
+                    <config_path>pronko/dynamic_remarketing/conversion_color</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="conversion_label" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Conversion Label</label>
+                    <config_path>pronko/dynamic_remarketing/conversion_label</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="send_currency" translate="label" type="select" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send Order Currency</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>pronko/dynamic_remarketing/send_currency</config_path>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

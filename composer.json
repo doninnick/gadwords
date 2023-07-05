@@ -1,0 +1,49 @@
+{
+    "name": "pronko/google-adwords",
+    "description": "Google Ads Dynamic Remarketing extension for Magento 2",
+    "license": "proprietary",
+    "version": "2.1.2",
+    "type": "magento2-module",
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.pronkoconsulting.com"
+        }
+    ],
+    "require": {
+        "pronko/module-base": "~3",
+        "magento/module-store": "~101",
+        "magento/module-config": "~101",
+        "magento/module-checkout": "~100",
+        "magento/module-quote": "~101",
+        "magento/module-catalog": "~103|~104"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.2",
+        "magento/magento-coding-standard": "~2.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Pronko\\GoogleAdWords\\": ""
+        }
+    },
+    "scripts": {
+        "test-unit": "vendor/bin/phpunit Test",
+        "test-coverage": "vendor/bin/phpunit Test --coverage-text=pronko_dynamic_remarketing_coverage_report.txt",
+        "test-phpcs": "vendor/bin/phpcs --standard=Magento2 Api/ Block/ etc/ Plugin/ Service/ Setup/ Source/ Test/ view/",
+        "post-install-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 1 ] && vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+        ],
+        "post-update-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 1 ] && vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+        ]
+    }
+}

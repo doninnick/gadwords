@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.0/phpunit.xsd"
+         verbose="true">
+    <testsuite name="Pronko Dynamic Remarketing Unit Tests">
+        <directory suffix="Test.php">Test/Unit</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./Api</directory>
+            <directory suffix=".php">./Block</directory>
+            <directory suffix=".php">./Model</directory>
+            <directory suffix=".php">./Plugin</directory>
+            <directory suffix=".php">./Service</directory>
+            <directory suffix=".php">./Source</directory>
+        </whitelist>
+    </filter>
+</phpunit>

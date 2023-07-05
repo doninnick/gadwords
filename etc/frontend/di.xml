@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="PronkoGoogleAdWordsProviderOther" type="Pronko\GoogleAdWords\Model\Provider\General">
+        <arguments>
+            <argument name="currentPage" xsi:type="string">other</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="PronkoGoogleAdWordsProviderSearch" type="Pronko\GoogleAdWords\Model\Provider\General">
+        <arguments>
+            <argument name="currentPage" xsi:type="string">searchresults</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="PronkoGoogleAdWordsProviderHome" type="Pronko\GoogleAdWords\Model\Provider\General">
+        <arguments>
+            <argument name="currentPage" xsi:type="string">home</argument>
+        </arguments>
+    </virtualType>
+</config>

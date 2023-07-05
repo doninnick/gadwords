@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Pronko\GoogleAdWords\Model\TagPool">
+        <arguments>
+            <argument name="tags" xsi:type="array">
+                <item name="retail" xsi:type="object">Pronko\GoogleAdWords\Model\Tag\Retail</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Pronko\GoogleAdWords\Model\Tag\Retail" type="Pronko\GoogleAdWords\Model\Tag">
+        <arguments>
+            <argument name="parametersMapping" xsi:type="array">
+                <item name="current_page" xsi:type="string">ecomm_pagetype</item>
+                <item name="item_ids" xsi:type="string">ecomm_prodid</item>
+                <item name="total_value" xsi:type="string">ecomm_totalvalue</item>
+                <item name="category_name" xsi:type="string">ecomm_category</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

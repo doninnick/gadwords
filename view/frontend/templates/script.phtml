@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+
+/** @var Pronko\GoogleAdWords\Block\Script $block */
+$customParametersJson = $block->getCustomParametersJson();
+?>
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = <?=  /* @noEscape */ $block->getConversionId(); ?>;
+    var google_conversion_label = "<?=  /* @noEscape */ $block->getConversionLabel(); ?>";
+    var google_remarketing_only = <?=  /* @noEscape */ $block->getRemarketingOnly(); ?>;
+<?php if (!empty($customParametersJson)): ?>
+    var google_tag_params = <?= /* @noEscape */ $customParametersJson; ?>;
+    var google_custom_params = window.google_tag_params;
+<?php endif; ?>
+<?php if (!empty($block->renderConversion())): ?>
+    var google_conversion_language = "<?=  /* @noEscape */ $block->getConversionLanguage(); ?>";
+    var google_conversion_format = "<?=  /* @noEscape */ $block->getConversionFormat(); ?>";
+    var google_conversion_color = "<?=  /* @noEscape */ $block->getConversionColor(); ?>";
+    var google_conversion_value = "<?=  /* @noEscape */ $block->getConversionValue(); ?>";
+    var google_conversion_currency = "<?=  /* @noEscape */ $block->getOrderCurrencyCode(); ?>";
+<?php endif; ?>
+    /* ]]> */
+</script>
+<script src="<?= $block->escapeUrl($block->getConversionJsSrc()); ?>"></script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="<?= $block->escapeUrl($block->getConversionImgSrc()); ?>"/>
+    </div>
+</noscript>
+
+

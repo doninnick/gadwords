@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="pronko.google_adwords.script">
+            <arguments>
+                <argument name="remarketingOnly" xsi:type="boolean">true</argument>
+                <argument name="parametersProvider" xsi:type="object">Pronko\GoogleAdWords\Model\Provider\Product</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
